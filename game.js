@@ -14,8 +14,8 @@ eatSound.volume = 1.0; // full volume or adjust as you like
 
 
 // ===== Game config =====
-const tileCount = 15;          // 20 x 20 grid
-const baseSpeed = 7;           // moves per second (grid steps)
+const tileCount = 13;          // 20 x 20 grid
+const baseSpeed = 5;           // moves per second (grid steps)
 let tileSize;                  // computed from canvas size
 
 let lastTime = 0;
