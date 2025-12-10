@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Sathi's Snake Game</title>
+  <link rel="icon" href="icon2.png" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#3b5b1a">
+
+  <!-- iOS add-to-home-screen support -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Sathi Game">
+  <link rel="apple-touch-icon" href="iconbg2.png">
+
+  <!-- PWA manifest -->
+  <link rel="manifest" href="manifest.webmanifest">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+    <header class="top-bar">
+      <div class="top-left">
+        <div class="apple-icon"></div>
+        <span id="score">0</span>
+      </div>
+      <div class="title">SATHIS'S SNAKE GAME</div>
+      <div class="top-right">
+        <!-- Placeholder for future buttons if you want -->
+      </div>
+    </header>
+
+    <main class="game-wrapper">
+      <canvas id="gameCanvas"></canvas>
+      <div id="gameOverlay" class="overlay hidden">
+        <div class="overlay-box">
+          <h2 id="overlayTitle">Tap to start</h2>
+          <p id="overlayText">Swipe or use arrow keys to move the pink snake and eat the apples.</p>
+          <button id="restartBtn">Play</button>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <script src="game.js"></script>
+  <script>
+    // Register service worker for PWA
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').catch(console.error);
+      });
+    }
+  </script>
+</body>
+</html>

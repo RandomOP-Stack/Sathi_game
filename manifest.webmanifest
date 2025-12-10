@@ -1,0 +1,20 @@
+{
+  "name": "Sathi Game",
+  "short_name": "Sathi Game",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#5d8b2e",
+  "theme_color": "#3b5b1a",
+  "icons": [
+    {
+      "src": "iconbg2.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "iconbg2.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

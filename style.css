@@ -1,0 +1,150 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #2f4f1f;
+  color: #fff;
+}
+
+.app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Top bar */
+
+.top-bar {
+  background: #3b5b1a;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+}
+
+.top-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.apple-icon {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #ffb6b6 0, #ff3b30 55%, #b01212 100%);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+  position: relative;
+}
+
+.apple-icon::before {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 10px;
+  border-radius: 0 0 10px 10px;
+  background: #3b5b1a;
+  top: -7px;
+  left: 6px;
+  transform: rotate(-15deg);
+}
+
+#score {
+  font-size: 18px;
+}
+
+.title {
+  font-weight: 600;
+}
+
+/* Game area */
+
+.game-wrapper {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+}
+
+#gameCanvas {
+  background: #a4d45a;
+  border-radius: 6px;
+  box-shadow: 0 0 0 6px #3b5b1a;
+  touch-action: none; /* Prevent scrolling while swiping */
+}
+
+/* Checkered background will be drawn in JS */
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hidden {
+  display: none;
+}
+
+.overlay-box {
+  background: rgba(0, 0, 0, 0.75);
+  padding: 16px 22px;
+  border-radius: 12px;
+  text-align: center;
+  max-width: 260px;
+}
+
+.overlay-box h2 {
+  margin-bottom: 8px;
+}
+
+.overlay-box p {
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.overlay-box button {
+  border: none;
+  padding: 8px 22px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+  background: #ff6fb8;
+  color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.4);
+  cursor: pointer;
+}
+
+.overlay-box button:active {
+  transform: translateY(1px);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+}
+
+/* Ensure canvas stays square and responsive */
+.game-wrapper {
+  position: relative;
+}
+
+@media (orientation: portrait) {
+  #gameCanvas {
+    max-width: 100vw;
+    max-height: calc(100vh - 60px);
+  }
+}
+
+@media (orientation: landscape) {
+  #gameCanvas {
+    max-height: calc(100vh - 60px);
+    max-width: calc(100vw - 40px);
+  }
+}
