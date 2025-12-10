@@ -523,6 +523,7 @@ document.addEventListener('keydown', e => {
 
 let touchStartX = null;
 let touchStartY = null;
+const SWIPE_THRESHOLD = 10;
 
 canvas.addEventListener('touchstart', e => {
   ensureAudio();
@@ -541,6 +542,11 @@ canvas.addEventListener('touchend', e => {
   const t = e.changedTouches[0];
   const dx = t.clientX - touchStartX;
   const dy = t.clientY - touchStartY;
+
+  if (Math.abs(dx) < SWIPE_THRESHOLD && Math.abs(dy) < SWIPE_THRESHOLD) {
+    return;
+  }
+
 
   if (Math.abs(dx) > Math.abs(dy)) {
     if (dx > 0 && direction.x !== -1) {
